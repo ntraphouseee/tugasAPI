@@ -1,12 +1,19 @@
 package com.example.tugasapi.api;
 
-import com.example.tugasapi.model.TeamResponse;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
+public class ApiClient {
+    private static final String BASE_URL = "https://www.thesportsdb.com/";
+    private static Retrofit retrofit = null;
 
-public interface ApiClient {
-    @GET("https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=English%20Premier%20League")
-    Call<TeamResponse> getAllTeams(@Query("l") String league);
+    public static Retrofit getClient() {
+        if (retrofit == null) {
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return retrofit;
+    }
 }

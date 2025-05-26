@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    android:elevation="4dp"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginTop="5dp">
 
     <ImageView
-        android:id="@+id/imgTeamBadge"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="Team Badge" />
+        android:id="@+id/img_team_badge"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitCenter"/>
 
     <TextView
-        android:id="@+id/tvTeamName"
-        android:layout_width="0dp"
+        android:id="@+id/tv_team_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Team Name"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@id/imgTeamBadge"
-        app:layout_constraintTop_toTopOf="@id/imgTeamBadge"
-        app:layout_constraintBottom_toBottomOf="@id/imgTeamBadge"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:paddingStart="8dp" />
+        android:textStyle="bold"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        android:maxLines="3"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:id="@+id/tv_keywords"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_marginTop="4dp"/>
+
+</LinearLayout>
